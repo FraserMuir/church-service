@@ -10,9 +10,6 @@ const StyledContainer = styled.div`
 export const App = () => {
   const [latestVideoId, setLatestVideoId] = useState(null);
 
-  const channelId = process.env.REACT_APP_CHANNEL_ID;
-  const key = process.env.REACT_APP_API_KEY;
-
   const opts = {
     height: window.screen.height,
     width: window.screen.width,
@@ -22,7 +19,7 @@ export const App = () => {
   };
 
   useEffect(() => {
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=${key}&channelId=${channelId}&part=snippet,id&order=date&maxResults=1`)
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_API_KEY}&channelId=${process.env.REACT_APP_CHANNEL_ID}&part=snippet,id&order=date&maxResults=1`)
       .then((d) => d.json())
       .then((d) => setLatestVideoId(d.items[0].id.videoId));
   }, []);
