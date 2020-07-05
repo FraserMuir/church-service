@@ -10,8 +10,8 @@ const StyledContainer = styled.div`
 export const App = () => {
   const [latestVideoId, setLatestVideoId] = useState(null);
 
-  const channelId = "UCG2fWgbCKkAsoac2H5Xz5gw";
-  const key = "AIzaSyC9ZSVdN4TLI5ibJASLoFZyGRnh1De3rwY";
+  const channelId = process.env.REACT_APP_CHANNEL_ID;
+  const key = process.env.REACT_APP_API_KEY;
 
   const opts = {
     height: window.screen.height,
